@@ -1,16 +1,14 @@
-import express from 'express';
+import express from 'express'
 
-import routes from './routes';
+import routes from './routes'
 
-
-const router = express.Router();
+const router = express.Router()
 
 routes.forEach((route) => {
-  const { prefix } = route;
-  const subRouter = express.Router();
-  route.inject(subRouter);
-  router.use(prefix, subRouter);
-});
+  const { prefix } = route
+  const subRouter = express.Router()
+  route.inject(subRouter)
+  router.use(prefix, subRouter)
+})
 
-
-export default router;
+export default router

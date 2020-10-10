@@ -1,0 +1,20 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "standard",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "camelcase": "off"
+    },
+    "globals": {
+        "process": true,
+        "Buffer": true,
+        "__dirname": true,
+        "module": true
+    }
+}

@@ -1,6 +1,6 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize'
 
-import Sequelize from '../sequelize';
+import Sequelize from '../sequelize'
 
 const data_sets = Sequelize.define(
   'data_sets',
@@ -32,7 +32,7 @@ const initialize = (models) => {
       name: 'user_id',
       allowNull: false
     }
-  });
-};
+  })
+}
 
-export default { model: data_sets, initialize };
+export default { model: data_sets, initialize }

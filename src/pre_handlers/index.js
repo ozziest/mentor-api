@@ -1,8 +1,7 @@
-import fixPath from './fixPath';
-import authentication from './authentication';
-
+import fixPath from './fixPath'
+import authentication from './authentication'
 
 export default [
   fixPath,
   authentication
-];
+]

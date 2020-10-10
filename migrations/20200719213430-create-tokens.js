@@ -1,8 +1,7 @@
-'use strict';
-
+'use strict'
 
 module.exports = {
-  up: function(queryInterface, Sequelize) {
+  up: function (queryInterface, Sequelize) {
     return queryInterface.createTable(
       'tokens',
       {
@@ -43,9 +42,9 @@ module.exports = {
           onDelete: 'cascade'
         }
       }
-    );
+    )
   },
-  down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('tokens');
+  down: function (queryInterface) {
+    return queryInterface.dropTable('tokens')
   }
-};
+}

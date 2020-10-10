@@ -1,22 +1,21 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize'
 
-import Sequelize from '../sequelize';
-
+import Sequelize from '../sequelize'
 
 const datas = Sequelize.define(
   'datas',
   {
-    
+
     value: {
-      type: DataTypes.DOUBLE,
-    },
-    
+      type: DataTypes.DOUBLE
+    }
+
   },
   {
     timestamps: true,
     underscored: true
   }
-);
+)
 
 const initialize = (models) => {
   models.datas.belongsTo(models.data_sets, {
@@ -25,9 +24,7 @@ const initialize = (models) => {
       name: 'dataset_id',
       allowNull: false
     }
-  });
-};
+  })
+}
 
-
-export default { model: datas, initialize };
-
+export default { model: datas, initialize }

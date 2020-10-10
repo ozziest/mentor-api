@@ -1,10 +1,10 @@
 export default (req, res, next) => {
-  let url = req._parsedUrl.pathname;
+  let url = req._parsedUrl.pathname
   if (!url.endsWith('/')) {
-    url += '/';
+    url += '/'
   }
 
-  req.fixed_url = url;
+  req.fixed_url = url
 
-  next();
-};
+  next()
+}

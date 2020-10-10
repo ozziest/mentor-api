@@ -1,21 +1,20 @@
 import nodemailer from 'nodemailer'
-import { b64Encode } from './encryption';
 
 export const sendEmail = async (user, token) => {
-  const href = `${process.env.BACKEND_PATH}/authentications/email-confirmation?token=${token}`;
+  const href = `${process.env.BACKEND_PATH}/authentications/email-confirmation?token=${token}`
 
-  const buttonText = `Confirm`;
+  const buttonText = 'Confirm'
 
-  const subject = `Welcome to MaviDurak-IO`;
+  const subject = 'Welcome to MaviDurak-IO'
 
-  const header = `Hi <strong><em>${user.name}</em></strong>, time to get started ⏳`;
+  const header = `Hi <strong><em>${user.name}</em></strong>, time to get started ⏳`
 
   const message = `
     You can store, visualize and categorize your data on <em>MaviDurak-IO</em> website.
     We provide you with an easy interface to do this. You are now on <em>MaviDurak-IO</em>, 
     but first you have to complete the registration process.
     <br><br>
-    Don't worry, one click is all it takes. Please click the button below that says "<strong>${buttonText}</strong>".`;
+    Don't worry, one click is all it takes. Please click the button below that says "<strong>${buttonText}</strong>".`
 
   const htmlCode = `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -232,28 +231,27 @@ export const sendEmail = async (user, token) => {
     </html>
   `
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: process.env.EMAIL_SECURE, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL_USER, // generated ethereal user or someone smtp server like elasticemail or gmail
-      pass: process.env.EMAIL_PASSWORD, // user password
-    },
-  });
+      pass: process.env.EMAIL_PASSWORD // user password
+    }
+  })
 
   // send mail with defined transport object
-  let info = await transporter.sendMail({
+  const info = await transporter.sendMail({
     from: `${process.env.EMAIL_USER}`,
     to: `${user.email}`,
     subject: subject,
-    html: htmlCode,
-  });
+    html: htmlCode
+  })
 
-  console.log(`\n++++++++++++++++| ${buttonText} Message sent to ${user.email} - ${info.messageId} |++++++++++++++++\n`);
-
-};
+  console.log(`\n++++++++++++++++| ${buttonText} Message sent to ${user.email} - ${info.messageId} |++++++++++++++++\n`)
+}
 
 export default {
   sendEmail
-};
+}

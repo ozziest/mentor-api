@@ -1,7 +1,6 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize'
 
-import Sequelize from '../sequelize';
-
+import Sequelize from '../sequelize'
 
 const email_confirmation_token = Sequelize.define(
   'email_confirmation_token',
@@ -16,7 +15,7 @@ const email_confirmation_token = Sequelize.define(
     timestamps: true,
     underscored: true
   }
-);
+)
 
 const initialize = (models) => {
   models.email_confirmation_token.belongsTo(models.user, {
@@ -25,9 +24,7 @@ const initialize = (models) => {
       name: 'user_id',
       allowNull: false
     }
-  });
-};
+  })
+}
 
-
-export default { model: email_confirmation_token, initialize };
-
+export default { model: email_confirmation_token, initialize }

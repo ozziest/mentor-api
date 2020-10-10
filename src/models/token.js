@@ -1,7 +1,6 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize'
 
-import Sequelize from '../sequelize';
-
+import Sequelize from '../sequelize'
 
 const token = Sequelize.define(
   'token',
@@ -23,7 +22,7 @@ const token = Sequelize.define(
     timestamps: true,
     underscored: true
   }
-);
+)
 
 const initialize = (models) => {
   models.token.belongsTo(models.user, {
@@ -32,9 +31,7 @@ const initialize = (models) => {
       name: 'user_id',
       allowNull: false
     }
-  });
-};
+  })
+}
 
-
-export default { model: token, initialize };
-
+export default { model: token, initialize }

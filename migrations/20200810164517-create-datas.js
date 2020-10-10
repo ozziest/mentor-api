@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('datas', {
@@ -13,7 +13,7 @@ module.exports = {
         references: {
           model: 'data_sets',
           key: 'id'
-        },
+        }
       },
       value: {
         type: Sequelize.DOUBLE
@@ -28,9 +28,9 @@ module.exports = {
       deleted_at: {
         type: Sequelize.DATE
       }
-    });
+    })
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('datas');
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('datas')
   }
-};
+}

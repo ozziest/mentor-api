@@ -1,5 +1,4 @@
-'use strict';
-
+'use strict'
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
@@ -47,9 +46,9 @@ module.exports = {
           type: Sequelize.DATE
         }
       }
-    );
+    )
   },
-  down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('users');
+  down: function (queryInterface) {
+    return queryInterface.dropTable('users')
   }
-};
+}

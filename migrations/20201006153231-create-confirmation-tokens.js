@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.sequelize.transaction(t => {
+    return queryInterface.sequelize.transaction(() => {
       return Promise.all([
         queryInterface.createTable(
           'email_confirmation_tokens',
@@ -39,19 +39,19 @@ module.exports = {
           }
         ),
         queryInterface.removeColumn('users', 'email_confirmation')
-      ]);
-    });
+      ])
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.sequelize.transaction(t => {
+    return queryInterface.sequelize.transaction(() => {
       return Promise.all([
         queryInterface.dropTable('email_confirmation_tokens'),
         queryInterface.addColumn('users', 'email_confirmation', {
           type: Sequelize.BOOLEAN,
           defaultValue: false
-        }),
-      ]);
-    });
+        })
+      ])
+    })
   }
-};
+}

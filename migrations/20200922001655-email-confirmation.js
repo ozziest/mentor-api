@@ -1,7 +1,6 @@
 module.exports = {
 
   up: (queryInterface, Sequelize) => {
-
     return Promise.all([
       queryInterface.addColumn('users', 'email_confirmation', {
         type: Sequelize.BOOLEAN,
@@ -11,8 +10,8 @@ module.exports = {
     ])
   },
 
-  down: function (queryInterface, Sequelize) {
+  down: function (queryInterface) {
     return queryInterface.removeColumn('users', 'email_confirmation'
-    );
+    )
   }
 }
